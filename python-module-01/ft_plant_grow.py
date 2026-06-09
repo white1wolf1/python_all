@@ -4,15 +4,16 @@ class Plant:
         self.height = height
         self.days = days
 
+
     def grow(self) -> None:
         if self.name == "Rose":
             self.height += 1
         elif self.name == "Sunflower":
-            self.height = round(self.height + 0.4, 2)
+            self.height = round(self.height + 0.4988, 2)
         elif self.name == "Cactus":
-            self.height += round(self.height + 0.2, 2)
+            self.height = round(self.height + 0.2, 2)
         else:
-            self.height += round(self.height + 1.1, 2)
+            self.height = round(self.height + 1.1888, 2)
 
     def age(self) -> None:
         print("=== Garden Plant Growth ===")
@@ -25,6 +26,7 @@ class Plant:
             print(f"=== Day {i} ===")
             print(f"{self.name} : {self.height}cm, {self.days} days old")
         value = self.height - value
+        value = round(value, 2)
         print(f"Growth this week: {value}cm")
 
 
