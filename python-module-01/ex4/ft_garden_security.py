@@ -12,8 +12,15 @@ class Plant:
             self._days = 0
             print("Error, days can't be negative")
 
+    def get_height(self) -> float:
+        return self._height
+
+    def get_age(self) -> int:
+        return self._days
+
     def show(self) -> None:
-        print(f"Current state {self.name}: {self._height}cm, {self._days} days old")
+        print(f"{self.name}: {self._height}cm,", end="")
+        print(f" {self._days} days old")
 
     def grow(self) -> None:
         if self.name == "Rose":
@@ -28,7 +35,6 @@ class Plant:
     def age(self) -> None:
         print("=== Garden Plant Growth ===")
         print(f"{self.name} : {self._height}cm, {self._days} days old")
-        i = 1
         value = self._height
         for i in range(1, 8):
             self.grow()
@@ -40,31 +46,37 @@ class Plant:
         print(f"Growth this week: {value}cm")
 
     def set_height(self, height) -> None:
-        if height > 0 :
+        if height > 0:
             self._height = height
             print(f" Height Updated : {self._height}cm ")
         else:
+            print(f"{self.name} :", end="")
             print(" Error ,your height can't be negative ")
-            print("update rejected")
+            print("Height update rejected")
 
-    def set_age(self, age) -> None:
-        if age > 0 :
-            self._days = age
+    def set_age(self, days) -> None:
+        if days > 0:
+            self._days = days
             print(f" Age Updated : {self._days} days ")
         else:
+            print(f"{self.name} :", end="")
             print("Error, your age can't be negative ")
-            print("update rejected")
+            print("Age update rejected")
 
 
 def main() -> None:
     print("=== Garden Security System ===")
-    Plant1 = Plant("Rose", 15, 10)
+    print("Plant Created: ", end="")
+    Plant1 = Plant("Rose", 15.0, 10)
+    Plant1.show()
+    print("")
     Plant1.set_height(25)
     Plant1.set_age(30)
+    print("")
     Plant1.set_height(-12)
     Plant1.set_age(-30)
+    print("\n Current State ", end="")
     Plant1.show()
-
 
 
 if __name__ == "__main__":

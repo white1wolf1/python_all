@@ -4,7 +4,6 @@ class Plant:
         self.height = height
         self.days = days
 
-
     def grow(self) -> None:
         if self.name == "Rose":
             self.height += 1

@@ -11,26 +11,26 @@
 # *************************************************************************** #
 
 class Plant:
-	def __init__(self, name:str, height:int, days: int) -> None:
-		self.name = name
-		self.height = height
-		self.days = days
+    def __init__(self, name: str, height: int, days: int) -> None:
+        self.name = name
+        self.height = height
+        self.days = days
 
-
-	def show(self) -> None:
-		print(f"{self.name.capitalize()}: {self.height}cm, {self.days} days old")
-
+    def show(self) -> None:
+        print(f"{self.name.capitalize()}: {self.height}cm,", end="")
+        print(f" {self.days} days old")
 
 
 def main() -> None:
-	plant1 : Plant = Plant("Rose", 25 , 30)
-	plant2 : Plant = Plant("Sunflower", 80 ,45)
-	plant3 : Plant = Plant("Cactus", 15 , 120)
-	
-	print("=== Garden Plant Registry ===")
-	plant1.show()
-	plant2.show()
-	plant3.show()
+    plant1: Plant = Plant("Rose", 25, 30)
+    plant2: Plant = Plant("Sunflower", 80, 45)
+    plant3: Plant = Plant("Cactus", 15, 120)
+
+    print("=== Garden Plant Registry ===")
+    plant1.show()
+    plant2.show()
+    plant3.show()
+
 
 if __name__ == "__main__":
-	main()
+    main()
