@@ -26,27 +26,31 @@ class Plant:
     def __init__(self, name: str, height: float, age: int) -> None:
         self.statics = self.StaticClass()
         self.name = name
-        if height > 0:
+        if height > -1:
             self._height = height
         else:
-            self._height = 0
             print("Error, hieght can't be negative")
-        if age > 0:
+        if age > -1:
             self._age = age
         else:
             self._age = 0
             print("Error, days can't be negative")
 
     @classmethod
-    def create(cls, name="Anonymus", _height=0.0, _age=0):
+    def create(cls, name: str = "Unknown plant",
+               _height: float = 0.0, _age: int = 0) -> "Plant":
         return cls(name, _height, _age)
 
     @staticmethod
-    def year_check(age) -> bool:
+    def year_check(age: int) -> None:
         if age > 360:
             print(f"Is {age} days more than a year True")
         else:
             print(f"Is {age} days more than a year False")
+
+    def show(self) -> None:
+        print(f'{self.name}: {self._height}cm, {self._age} days old')
+        self.statics.increase_show()
 
     def grow(self) -> None:
         if self.name == "Rose":
@@ -155,7 +159,7 @@ def display_statistics(cls: Plant) -> None:
         print(f"shade :{cls.statics._shade_stat}")
 
 
-def main():
+def main() -> None:
     print("=== Garden statistics ===")
     print("=== Check year-old ===")
     Plant.year_check(30)
@@ -189,7 +193,9 @@ def main():
     display_statistics(seed1)
     print("")
     print("=== Anonymous")
-    
+    anonym1 = Plant.create()
+    anonym1.show()
+    display_statistics(anonym1)
 
 
 if __name__ == "__main__":

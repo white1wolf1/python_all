@@ -45,7 +45,7 @@ class Plant:
         value = round(value, 2)
         print(f"Growth this week: {value}cm")
 
-    def set_height(self, height) -> None:
+    def set_height(self, height: float) -> None:
         if height > 0:
             self._height = height
             print(f" Height Updated : {self._height}cm ")
@@ -54,7 +54,7 @@ class Plant:
             print(" Error ,your height can't be negative ")
             print("Height update rejected")
 
-    def set_age(self, days) -> None:
+    def set_age(self, days: int) -> None:
         if days > 0:
             self._days = days
             print(f" Age Updated : {self._days} days ")

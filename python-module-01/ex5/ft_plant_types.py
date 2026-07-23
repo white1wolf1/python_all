@@ -96,7 +96,7 @@ class Vegetable(Plant):
         print(f' Nutritional value : {self.nutritional_value}')
 
 
-def main():
+def main() -> None:
     print("=== Garden Plant Types ===")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
