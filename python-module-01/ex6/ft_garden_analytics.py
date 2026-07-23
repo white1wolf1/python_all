@@ -7,7 +7,7 @@ class Plant:
         _show_stat = 0
         _shade_stat = 0
 
-        def statistics_meth(self) -> None:
+        def statistics_method(self) -> None:
             print(f"Stats :{self._grow_stat} grow,", end="")
             print(f"{self._age_stat} age, {self._show_stat} show")
 
@@ -154,7 +154,7 @@ class Vegetable(Plant):
 
 
 def display_statistics(cls: Plant) -> None:
-    cls.statics.statistics_meth()
+    cls.statics.statistics_method()
     if cls.__class__.__name__ == "Tree":
         print(f"shade :{cls.statics._shade_stat}")
 
