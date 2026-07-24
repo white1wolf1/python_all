@@ -3,23 +3,22 @@ def input_tempriture(temp_str: str) -> int:
     return int_str
 
 
-def test_temperature(ramdom_str: str) -> None:
-    print(f" Input data is '{ramdom_str}'")
+def test_temperature_input(random_str) -> None:
+    
+    print(f"Input data is '{random_str}'")
     try:
-        print(f"Temperature is now {input_tempriture(ramdom_str)}°C")
+        print(f"Temperature is now {input_tempriture(random_str)}°C")
     except Exception as e:
         print(f"Caught input_temperature error: {e} ")
 
 
-def main() -> None:
-    print("=== Garden Temperature ===")
+def test_temperature() -> None:
+    print("=== Garden Temperature Checker ===\n")
+    test_temperature_input("25")
     print("")
-    test_temperature("25")
-    print("")
-    test_temperature("ABC")
-    print("")
-    print("All tests completed - program didn't crash!")
+    test_temperature_input("abc")
+    print("All tests completed - program didn't crash")
 
 
 if __name__ == "__main__":
-    main()
+    test_temperature()
