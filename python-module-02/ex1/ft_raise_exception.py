@@ -1,9 +1,14 @@
 def input_tempriture(temp_str: str) -> int:
     int_str = int(temp_str)
+
+    if int_str < 0:
+        raise Exception("f °C is too cold for plants (min 0°C)")
+    elif int_str > 40:
+        raise Exception("f °C is too hot for plants (max 40°C)")
     return int_str
 
 
-def test_temperature_input(random_str :str) -> None:
+def test_temperature_input(random_str: str) -> None:
 
     print(f"Input data is '{random_str}'")
     try:
@@ -13,11 +18,16 @@ def test_temperature_input(random_str :str) -> None:
 
 
 def test_temperature() -> None:
-    print("=== Garden Temperature ===\n")
+    print("=== Garden Temperature Checker ===\n")
     test_temperature_input("25")
     print("")
     test_temperature_input("abc")
-    print("All tests completed - program didn't crash")
+    print("")
+    test_temperature_input("100")
+    print("")
+    test_temperature_input("-50")
+    print("")
+    print("All tests completed - program didn't crash !")
 
 
 if __name__ == "__main__":
