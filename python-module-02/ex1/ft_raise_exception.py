@@ -1,10 +1,10 @@
-def input_tempriture(temp_str: str) -> int:
+def input_temperature(temp_str: str) -> int:
     int_str = int(temp_str)
 
     if int_str < 0:
-        raise Exception("f °C is too cold for plants (min 0°C)")
+        raise Exception(f"{int_str} °C is too cold for plants (min 0°C)")
     elif int_str > 40:
-        raise Exception("f °C is too hot for plants (max 40°C)")
+        raise Exception(f"{int_str} °C is too hot for plants (max 40°C)")
     return int_str
 
 
@@ -12,7 +12,7 @@ def test_temperature_input(random_str: str) -> None:
 
     print(f"Input data is '{random_str}'")
     try:
-        print(f"Temperature is now {input_tempriture(random_str)}°C")
+        print(f"Temperature is now {input_temperature(random_str)}°C")
     except Exception as e:
         print(f"Caught input_temperature error: {e} ")
 
