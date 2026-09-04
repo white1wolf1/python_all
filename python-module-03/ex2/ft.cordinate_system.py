@@ -1,18 +1,19 @@
 import math
 
 
-def get_player_pos():
+def get_player_pos() -> tuple[float, float, float]:
     try:
         x = float(input("Enter coordinate for x: "))
         y = float(input("Enter coordinate for y: "))
         z = float(input("Enter coordinate for z: "))
+
         return (x, y, z)
     except ValueError as e:
         print(f"Error on parameter: {e}")
         return get_player_pos()
 
 
-def main():
+def main() -> None:
     print("=== Game Coordinate System ===\n")
 
     print("Get a first set of coordinates")
@@ -36,8 +37,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-

@@ -1,6 +1,7 @@
 import sys
 
-def takesinput():
+
+def takes_input() -> None:
 
     i = 1
     argnumber = (len(sys.argv))
@@ -15,8 +16,10 @@ def takesinput():
         i += 1
     print(f"Total argumengts {argnumber}")
 
-def main():
-    takesinput()
+
+def main() -> None:
+    takes_input()
+
 
 if __name__ == "__main__":
     main()

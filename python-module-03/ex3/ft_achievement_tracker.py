@@ -1,7 +1,7 @@
 import random
 
 
-def gen_player_achivments(sayi: int) -> set:
+def gen_player_achivments(sayi: int) -> set[str]:
     achivment_pool = {
         "Crafting Genius",
         "World Savior",
@@ -25,8 +25,8 @@ def gen_player_achivments(sayi: int) -> set:
 def main() -> None:
     alex = gen_player_achivments(7)
     ilyas = gen_player_achivments(5)
-    ayse = gen_player_achivments(1)
-    ahmet = gen_player_achivments(3)
+    ayse = gen_player_achivments(9)
+    ahmet = gen_player_achivments(10)
     print("=== Achievement Tracker System ===")
     print("Player Alex:", alex)
     print("Player Ilyas:", ilyas)

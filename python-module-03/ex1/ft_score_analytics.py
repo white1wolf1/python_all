@@ -1,22 +1,25 @@
 import sys
+
+
 def ft_score_analytics() -> None:
     print("=== Player Score Analytics ===")
 
-    argnumber = len(sys.argv)
+    arg_number = len(sys.argv)
 
-    if argnumber == 1:
-        print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+    if arg_number == 1:
+        print("No scores provided. Usage: python3"
+              "ft_score_analytics.py <score1> <score2> ...")
         return
 
     try:
-        argnumber -= 1
-        newlist = sys.argv[1:]
-        newlist = [int(score) for score in newlist]
+        arg_number -= 1
+        arguments = sys.argv[1:]
+        newlist = [int(score) for score in arguments]
 
         print("Scores processed:", newlist)
-        print("Total players:", argnumber)
+        print("Total players:", arg_number)
         print("Total score:", sum(newlist))
-        print("Average score:", sum(newlist) / argnumber)
+        print("Average score:", sum(newlist) / arg_number)
         print("High score:", max(newlist))
         print("Low score:", min(newlist))
         print("Score range:", max(newlist) - min(newlist))
@@ -28,7 +31,7 @@ def ft_score_analytics() -> None:
             except ValueError:
                 print(f"Invalid parameter: '{argument}'")
 
-        print("Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+        print("No scores provided, Usage: python3 ft_score_analytics.py <score1> <score2> ...")
 
 
 if __name__ == "__main__":
