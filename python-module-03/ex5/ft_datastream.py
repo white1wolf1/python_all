@@ -1,51 +1,48 @@
-import random
-import typing
+from typing import Generator
+from random import choice
 
+def gen_event() -> Generator:
 
-def gen_event() -> typing.Generator:  # kesinlikle tam anlamadım
-    players = ["Alex", "Ilyas", "ayse", "mehmet", "ikra"]
-    actions = [
-        "eat",
-        "sleep",
-        "cry",
-        "walk",
-        "kiss",
-        "hug",
-        "kick",
-        "run",
-        "be depressed",
-        "breath"
-    ]
+    actions = ["wake up", "sleep", "cry", "run", "walk", "kiss", "hug", "code"]
+    names = ["Aleks", "Ilyas", "Ayse", "Ahmet", "Esra", "Zeliha"]
 
     while True:
-        player = random.choice(players)
-        action = random.choice(actions)
+        action = choice(actions)
+        name = choice(names)
 
-        yield (player, action)  # bu da
+        new_tuple = (name, action) 
+        yield new_tuple
 
+def consume_event(event_list: list) -> Generator:
 
-def consume_event(events: list) -> typing.Generator:
-    while len(events) > 0:
-        index = random.randrange(len(events))
-        event = events.pop(index)
-        yield event
-
+    while True:
+        yield choice(event_list)
 
 def main() -> None:
-    event_generator = gen_event()
+    print("=== Game Data Stream Processor ===")
+    generator_gen_events = gen_event() #implemented the generator#
+    generator_get_event = consume_event()
 
     for i in range(1000):
-        event = next(event_generator)
-        print(f"Event {i}: Player {event[0]} did action {event[1]}")
+        events = next(generator_gen_events)
+        print(f"Event {i}: Player {events[0]} did action {events[1]}")
 
-    events = []
+    list_for_events = []
+    i = 0
+    while i < 10 :
+        events = next(generator_gen_events)
+        list_for_events.append(events)
+        i = i + 1
 
-    for i in range(10):
-        events.append(next(event_generator))
+    print(f"Built list of 10 events : {list_for_events} ")
 
-    for event in consume_event(events):
-        print(event)
-
-
+    while i > 0 :
+        events = next(generator_get_event)
+        print("Got event from list :",events)
+        list_for_events.remove(events)
+        print("Remains in list :",list_for_events)
+        i = i - 1
+    
+    
 if __name__ == "__main__":
-    main()
+    main() 
