@@ -1,1 +1,0 @@
-henüz yapmadım :) ilk 5 i anlamam lazım 
