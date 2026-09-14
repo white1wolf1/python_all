@@ -31,7 +31,8 @@ def ft_score_analytics() -> None:
             except ValueError:
                 print(f"Invalid parameter: '{argument}'")
 
-        print("No scores provided, Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+        print("No scores provided, Usage: python3"
+              "ft_score_analytics.py <score1> <score2> ...")
 
 
 if __name__ == "__main__":
