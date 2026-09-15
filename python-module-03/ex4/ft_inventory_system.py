@@ -21,10 +21,10 @@ def parametr_control() -> dict[str, int]:
             continue
 
         word = item[:i]
-        numper = item[i + 1:]
+        number = item[i + 1:]
 
         try:
-            new_dict.update({word: int(numper)})
+            new_dict.update({word: int(number)})
         except ValueError as e:
             print(f"quantity error for {word} :", e)
             continue

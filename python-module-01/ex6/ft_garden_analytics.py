@@ -44,9 +44,9 @@ class Plant:
     @staticmethod
     def year_check(age: int) -> None:
         if age > 360:
-            print(f"Is {age} days more than a year True")
+            print(f"Is {age} days more than a year? -> True")
         else:
-            print(f"Is {age} days more than a year False")
+            print(f"Is {age} days more than a year? -> False")
 
     def show(self) -> None:
         print(f'{self.name}: {self._height}cm, {self._age} days old')

@@ -1,7 +1,7 @@
 import random
 
 
-def gen_player_achivments(sayi: int) -> set[str]:
+def gen_player_achivments(number: int) -> set[str]:
     achivment_pool = {
         "Crafting Genius",
         "World Savior",
@@ -18,7 +18,7 @@ def gen_player_achivments(sayi: int) -> set[str]:
         "Sharp Mind",
         "Hidden Path Finder"
     }
-    requestet_set = set(random.sample(list(achivment_pool), sayi))
+    requestet_set = set(random.sample(list(achivment_pool), number))
     return requestet_set
 
 

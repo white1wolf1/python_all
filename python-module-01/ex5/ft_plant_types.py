@@ -45,7 +45,6 @@ class Flower(Plant):
         self.bloomed_tf = True
 
     def show(self) -> None:
-        print('=== Flower')
         print(f'{self.name}: {self._height}cm, {self._age} days old')
         print(f' Color : {self.color}')
         if not self.bloomed_tf:
@@ -65,7 +64,6 @@ class Tree(Plant):
         self.shade_tf = True
 
     def show(self) -> None:
-        print('=== Tree')
         print(f'{self.name}: {self._height}cm, {self._age} days old')
         print(f' Trunk Diameter : {self.diameter}')
         if not self.shade_tf:
@@ -90,7 +88,6 @@ class Vegetable(Plant):
         self.nutritional_value += 1
 
     def show(self) -> None:
-        print('=== Vegetable')
         print(f'{self.name}: {self._height}cm, {self._age} days old')
         print(f' Harvest season : {self.harvest}')
         print(f' Nutritional value : {self.nutritional_value}')
@@ -98,16 +95,19 @@ class Vegetable(Plant):
 
 def main() -> None:
     print("=== Garden Plant Types ===")
+    print('=== Flower')
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
     rose.bloom()
     rose.show()
     print("")
+    print('=== Tree')
     oak = Tree("Oak", 200.0, 365, 5.0)
     oak.show()
     oak.shade()
     oak.show()
     print("")
+    print('=== Vegetable')
     tomato = Vegetable("Tomato", 5.0, 10, "April")
     tomato.show()
     tomato.age(20)

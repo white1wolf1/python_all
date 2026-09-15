@@ -1,7 +1,7 @@
 import random
 
 
-def ft_data_alchemist() ->None:
+def ft_data_alchemist() -> None:
     mixed_names = ['Alice', 'bob', 'Charlie', 'dylan',
                    'Emma', 'Gregory', 'john', 'kevin', 'Liam']
     capitalized_all_names = [x.capitalize() for x in mixed_names]
@@ -13,12 +13,13 @@ def ft_data_alchemist() ->None:
 
     newdict = {x: random.randint(22, 2004) for x in capitalized_all_names}
     avarage_score = sum(newdict.values())/len(newdict.values())
-    higer_scores = {(x, score) for x, score in newdict.items()
-                    if score >= avarage_score}
-    print(higer_scores)
+    higher_scores = {(x, score) for x, score in newdict.items()
+                     if score >= avarage_score}
+    print("Score average is ", round(avarage_score, 2))
+    print("High scores:", higher_scores)
 
 
-def main() ->None:
+def main() -> None:
     print("=== Game Data Alchemist ===")
     ft_data_alchemist()
 

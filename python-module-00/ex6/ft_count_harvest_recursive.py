@@ -1,7 +1,7 @@
 def ft_count_harvest_recursive() -> None:
     days = int(input('How many days left until harvest ? '))
 
-    def HelpHarvest(i):
+    def HelpHarvest(i: int) -> None:
         if i == days:
             print('Day ', i)
             print('Harvest time!')
