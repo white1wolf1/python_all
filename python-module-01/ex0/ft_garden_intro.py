@@ -1,6 +1,6 @@
 def ft_garden_intro() -> None:
     name = "rose"
-    height = 10
+    height = 10.5
     age = 1
 
     print('=== Welcome to My Garden ===')
