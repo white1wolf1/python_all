@@ -36,7 +36,12 @@ def parameter_control(args_list: list[str]) -> dict[str, int]:
         print(f"Error - invalid parameter '{parameter}'")
 
     for parameter in not_valid_values:
-        print(f"Quantity error for '{parameter}': invalid literal for int()")
+        key, value = parameter.split(':')
+        print
+        (
+            f"Quantity error for '{key}': "
+            f"invalid literal for int() with base 10: '{value}'"
+        )
 
     return inventory
 
@@ -78,7 +83,7 @@ def main() -> None:
     )
 
     new_dict.update({'newdict': 2})
-    print(f"{new_dict}")
+    print(f"Updated inventory: {new_dict}")
 
 
 if __name__ == "__main__":
