@@ -1,6 +1,7 @@
 import sys
 
-def parameter_control(args_list):
+
+def parameter_control(args_list: list[str]) -> dict[str, int]:
     invalid_parameters = []
     duplicated_parameters = []
     not_valid_values = []
@@ -40,12 +41,12 @@ def parameter_control(args_list):
     return inventory
 
 
-def percentage(inventory: dict, key: str) -> float:
+def percentage(inventory: dict[str, int], key: str) -> float:
     total = sum(inventory.values())
-    return (inventory[key] / total) * 100
+    return float(inventory[key] / total) * 100
 
 
-def main():
+def main() -> None:
     print("=== Inventory System Analysis ===")
     new_dict = parameter_control(sys.argv[1:])
     print(f"Got inventory: {new_dict}")
@@ -64,8 +65,8 @@ def main():
         pct = percentage(new_dict, word)
         print(f"Item {word} represents {pct:.1f}%")
 
-    most_abundant = max(new_dict, key=new_dict.get)
-    least_abundant = min(new_dict, key=new_dict.get)
+    most_abundant = max(new_dict, key=lambda k: new_dict[k])
+    least_abundant = min(new_dict, key=lambda k: new_dict[k])
 
     print(
         f"Item most abundant: {most_abundant} "

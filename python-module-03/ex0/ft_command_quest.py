@@ -14,7 +14,7 @@ def takes_input() -> None:
     while argnumber > i:
         print(f"Argument {i}: {sys.argv[i]}")
         i += 1
-    print(f"Total argumengts {argnumber}")
+    print(f"Total arguments {argnumber}")
 
 
 def main() -> None:

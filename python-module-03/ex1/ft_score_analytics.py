@@ -1,7 +1,7 @@
 import sys
 
 
-def operations(argv_list_new: list[]) -> None:
+def operations(argv_list_new: list[int]) -> None:
     arg_number = len(argv_list_new)
     print("Scores processed:", argv_list_new)
     print("Total players:", arg_number)

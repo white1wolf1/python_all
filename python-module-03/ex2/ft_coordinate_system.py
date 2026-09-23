@@ -2,19 +2,20 @@ import math
 
 
 def get_player_pos() -> tuple[float, float, float]:
-    xyz = (input("Enter coordinate for x,y,z :"))
+    xyz = input("Enter coordinate for x,y,z :")
     parsed_xyz = xyz.split(",")
-    newtuple =list()
+    newtuple = list()
 
     for i in parsed_xyz:
         try:
-            i = float(i)  #amk malı float a çevirmiyo mu neden hata veriyo
-            newtuple.append(i)
+            value = float(i)
+            newtuple.append(value)
         except ValueError as e:
             print(f"Error on parameter: {e}")
             return get_player_pos()
-    newtuple = tuple(newtuple)
-    return (newtuple)
+
+    result = tuple(newtuple)
+    return (result[0], result[1], result[2])
 
 
 def main() -> None:
@@ -25,7 +26,9 @@ def main() -> None:
     print(f"Got a first tuple: {first}")
     print(f"It includes: X={first[0]}, Y={first[1]}, Z={first[2]}")
 
-    dist_center = math.sqrt(first[0]**2 + first[1]**2 + first[2]**2)
+    dist_center = math.sqrt(
+        first[0]**2 + first[1]**2 + first[2]**2
+    )
     print(f"Distance to center: {round(dist_center, 4)}\n")
 
     print("Get a second set of coordinates")
