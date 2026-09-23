@@ -1,46 +1,59 @@
 import sys
 
+def parameter_control(args_list):
+    invalid_parameters = []
+    duplicated_parameters = []
+    not_valid_values = []
+    checked_keys = []
+    inventory = {}
 
-def parametr_control() -> dict[str, int]:
-    user_input_list = list(sys.argv[1:])
-    input_amount = len(user_input_list)
-    if input_amount == 0:
-        print("No parameters were given !")
-        return {}
-
-    new_dict: dict[str, int] = {}
-    for item in user_input_list:
-        i = 0
-        while len(item) > i:
-            if item[i] != ':':
-                i += 1
-            else:
-                break
-        if len(item) == i:
-            print(f"Error: - invalid parameter '{item}'")
+    for arg in args_list:
+        if ':' not in arg:
+            invalid_parameters.append(arg)
             continue
 
-        word = item[:i]
-        number = item[i + 1:]
+        key, value = arg.split(':', 1)
 
         try:
-            new_dict.update({word: int(number)})
-        except ValueError as e:
-            print(f"quantity error for {word} :", e)
+            int_value = int(value)
+        except ValueError:
+            not_valid_values.append(arg)
             continue
 
-    return new_dict
+        if key in checked_keys:
+            duplicated_parameters.append(arg)
+        else:
+            checked_keys.append(key)
+
+        inventory[key] = int_value
+
+    for parameter in duplicated_parameters:
+        key = parameter.split(':', 1)[0]
+        print(f"Redundant item '{key}' - discarding")
+
+    for parameter in invalid_parameters:
+        print(f"Error - invalid parameter '{parameter}'")
+
+    for parameter in not_valid_values:
+        print(f"Quantity error for '{parameter}': invalid literal for int()")
+
+    return inventory
 
 
-def percentage(invintory: dict[str, int], key: str) -> float:
-    total = sum(invintory.values())
-    return (invintory[key] / total) * 100
+def percentage(inventory: dict, key: str) -> float:
+    total = sum(inventory.values())
+    return (inventory[key] / total) * 100
 
 
-def main() -> None:
+def main():
     print("=== Inventory System Analysis ===")
-    new_dict = parametr_control()
+    new_dict = parameter_control(sys.argv[1:])
     print(f"Got inventory: {new_dict}")
+
+    if not new_dict:
+        print("No valid items in inventory.")
+        return
+
     print(f"Item list: {list(new_dict.keys())}")
     print(
         f"Total quantity of {len(new_dict)} items is "
@@ -51,13 +64,16 @@ def main() -> None:
         pct = percentage(new_dict, word)
         print(f"Item {word} represents {pct:.1f}%")
 
+    most_abundant = max(new_dict, key=new_dict.get)
+    least_abundant = min(new_dict, key=new_dict.get)
+
     print(
-        f"Item most abundant: {max(new_dict.keys())} "
-        f"with quantity {max(new_dict.values())}"
+        f"Item most abundant: {most_abundant} "
+        f"with quantity {new_dict[most_abundant]}"
     )
     print(
-        f"Item least abundant: {min(new_dict.keys())} "
-        f"with quantity {min(new_dict.values())}"
+        f"Item least abundant: {least_abundant} "
+        f"with quantity {new_dict[least_abundant]}"
     )
 
     new_dict.update({'newdict': 2})

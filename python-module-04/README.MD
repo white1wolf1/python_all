@@ -54,3 +54,7 @@ To delete a file, you must import the OS module, and run its os.remove() functio
 if os.path.exists("demofile.txt"): = checks if the file is exist
 
 To delete an entire folder, use the os.rmdir() method but ou can only remove empty folders!
+
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)¶
+
+Note :If the file cannot be opened, an OSError is raised

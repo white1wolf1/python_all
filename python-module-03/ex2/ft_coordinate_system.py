@@ -2,15 +2,19 @@ import math
 
 
 def get_player_pos() -> tuple[float, float, float]:
-    try:
-        x = float(input("Enter coordinate for x: "))
-        y = float(input("Enter coordinate for y: "))
-        z = float(input("Enter coordinate for z: "))
+    xyz = (input("Enter coordinate for x,y,z :"))
+    parsed_xyz = xyz.split(",")
+    newtuple =list()
 
-        return (x, y, z)
-    except ValueError as e:
-        print(f"Error on parameter: {e}")
-        return get_player_pos()
+    for i in parsed_xyz:
+        try:
+            i = float(i)  #amk malı float a çevirmiyo mu neden hata veriyo
+            newtuple.append(i)
+        except ValueError as e:
+            print(f"Error on parameter: {e}")
+            return get_player_pos()
+    newtuple = tuple(newtuple)
+    return (newtuple)
 
 
 def main() -> None:
