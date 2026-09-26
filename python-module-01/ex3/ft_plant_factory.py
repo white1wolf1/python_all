@@ -20,7 +20,6 @@ class Plant:
     def age(self) -> None:
         print("=== Garden Plant Growth ===")
         print(f"{self.name} : {self.height}cm, {self.days} days old")
-        i = 1
         value = self.height
         for i in range(1, 8):
             self.grow()

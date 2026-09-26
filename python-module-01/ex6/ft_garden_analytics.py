@@ -156,7 +156,7 @@ class Vegetable(Plant):
 def display_statistics(cls: Plant) -> None:
     cls.statics.statistics_method()
     if cls.__class__.__name__ == "Tree":
-        print(f"shade :{cls.statics._shade_stat}")
+        print(f" {cls.statics._shade_stat} shade")
 
 
 def main() -> None:

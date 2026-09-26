@@ -104,8 +104,6 @@ def main() -> None:
     print('=== Tree')
     oak = Tree("Oak", 200.0, 365, 5.0)
     oak.show()
-    oak.shade()
-    oak.show()
     print("")
     print('=== Vegetable')
     tomato = Vegetable("Tomato", 5.0, 10, "April")

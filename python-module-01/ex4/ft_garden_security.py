@@ -5,7 +5,7 @@ class Plant:
             self._height = height
         else:
             self._height = 0
-            print("Error, hieght can't be negative")
+            print("Error, height can't be negative")
         if days > 0:
             self._days = days
         else:
