@@ -31,6 +31,8 @@ def ft_ancient_text() -> None:
             except OSError as error_e:
                 print("=== Cyber Archives Recovery ===")
                 print(f"unexpected error has occurred: {error_e}")
+            except Exception as error_e:
+                print("unexpected error has occurred", error_e)
             finally:
                 if fd_file is not None:
                     fd_file.close()

@@ -85,6 +85,8 @@ def ft_stream_management() -> None:
                 sys.stdout.write("Data not saved.\n")
             except NameError as error_e:
                 sys.stderr.write(f"[STDERR] {error_e}\n")
+            except Exception as error_e:
+                sys.stderr.write(f"[STDERR] error has accured: {error_e}")
             finally:
                 if file_fd is not None and file_fd.closed is False:
                     file_fd.close()

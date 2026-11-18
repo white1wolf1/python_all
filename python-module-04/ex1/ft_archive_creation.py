@@ -71,6 +71,8 @@ def ft_archive_creation() -> None:
                 print(" unexpexted error has accured", error_e)
             except NameError as error_e:
                 print(error_e)
+            except Exception as error_e:
+                print("unexpexted error has accured", error_e)
             finally:
                 if file_fd.closed is False:
                     file_fd.close()

@@ -31,6 +31,8 @@ def secure_archive(
                         bool_tf, "Content successfully written to file")
         except (FileNotFoundError, PermissionError, OSError) as error_e:
             return (False, str(error_e))
+        except Exception as error_e:
+            return (False, str(error_e))
         return tuple_return
     else:
         return (False, "incorrect input please try again")
