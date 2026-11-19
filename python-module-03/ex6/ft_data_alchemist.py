@@ -13,11 +13,11 @@ def ft_data_alchemist() -> None:
     print("")
 
     newdict = {x: random.randint(22, 2004) for x in capitalized_all_names}
-    avarage_score = sum(newdict.values())/len(newdict.values())
-    higher_scores = {(x, score) for x, score in newdict.items()
-                     if score >= avarage_score}
+    average_score = sum(newdict.values()) / len(newdict.values())
+    higher_scores = {x: score for x, score in newdict.items()
+                     if score > average_score}
     print("Score dict: ", newdict)
-    print("Score average is ", round(avarage_score, 2))
+    print("Score average is ", round(average_score, 2))
     print("High scores:", higher_scores)
 
 

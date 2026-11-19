@@ -19,8 +19,10 @@ def consume_event(
     event_list: list[tuple[str, str]]
 ) -> Generator[tuple[str, str], None, None]:
 
-    while True:
-        yield choice(event_list)
+    for _ in range(len(event_list)):
+        event = choice(event_list)
+        event_list.remove(event)
+        yield event
 
 
 def main() -> None:
@@ -40,13 +42,9 @@ def main() -> None:
 
     print(f"Built list of 10 events : {list_for_events} ")
 
-    generator_get_event = consume_event(list_for_events)
-    while i > 0:
-        events = next(generator_get_event)
+    for events in consume_event(list_for_events):
         print("Got event from list :", events)
-        list_for_events.remove(events)
         print("Remains in list :", list_for_events)
-        i = i - 1
 
 
 if __name__ == "__main__":

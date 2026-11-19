@@ -25,8 +25,7 @@ def parameter_control(args_list: list[str]) -> dict[str, int]:
             duplicated_parameters.append(arg)
         else:
             checked_keys.append(key)
-
-        inventory[key] = int_value
+            inventory[key] = int_value
 
     for parameter in duplicated_parameters:
         key = parameter.split(':', 1)[0]
@@ -36,9 +35,8 @@ def parameter_control(args_list: list[str]) -> dict[str, int]:
         print(f"Error - invalid parameter '{parameter}'")
 
     for parameter in not_valid_values:
-        key, value = parameter.split(':')
-        print
-        (
+        key, value = parameter.split(':', 1)
+        print(
             f"Quantity error for '{key}': "
             f"invalid literal for int() with base 10: '{value}'"
         )
@@ -62,7 +60,7 @@ def main() -> None:
 
     print(f"Item list: {list(new_dict.keys())}")
     print(
-        f"Total quantity of {len(new_dict)} items is "
+        f"Total quantity of the {len(new_dict)} items: "
         f"{sum(new_dict.values())}"
     )
 

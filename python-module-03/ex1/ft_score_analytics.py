@@ -26,17 +26,17 @@ def ft_score_analytics() -> None:
         operations(newlist)
 
     except ValueError:
-        eror_list = []
+        error_list = []
         valid_list = []
 
         for argument in sys.argv[1:]:
             try:
                 valid_list.append(int(argument))
             except ValueError:
-                eror_list.append(argument)
+                error_list.append(argument)
 
-        if eror_list:
-            for argument in eror_list:
+        if error_list:
+            for argument in error_list:
                 print(f"Invalid parameter: '{argument}'")
 
         if valid_list:

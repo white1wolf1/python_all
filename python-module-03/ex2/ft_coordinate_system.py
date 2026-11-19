@@ -2,20 +2,31 @@ import math
 
 
 def get_player_pos() -> tuple[float, float, float]:
-    xyz = input("Enter coordinate for x,y,z :")
-    parsed_xyz = xyz.split(",")
-    newtuple = list()
+    try:
+        xyz = input("Enter coordinate for x,y,z :")
+        parsed_xyz = xyz.split(",")
+        newtuple = list()
 
-    for i in parsed_xyz:
-        try:
-            value = float(i)
-            newtuple.append(value)
-        except ValueError as e:
-            print(f"Error on parameter: {e}")
-            return get_player_pos()
+        if len(parsed_xyz) != 3:
+            try:
+                raise TypeError
+            except TypeError:
+                print("Invalid syntax use 3 parameters !")
+                return get_player_pos()
 
-    result = tuple(newtuple)
-    return (result[0], result[1], result[2])
+        for i in parsed_xyz:
+            try:
+                value = float(i)
+                newtuple.append(value)
+            except ValueError as e:
+                print(f"Error on parameter: {e}")
+                return get_player_pos()
+
+        result = tuple(newtuple)
+        return (result[0], result[1], result[2])
+    except RecursionError as error_e:
+        print("Too many wrong tries please restart the code", error_e)
+        raise SystemExit()
 
 
 def main() -> None:

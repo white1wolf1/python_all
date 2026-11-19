@@ -1,8 +1,8 @@
 import random
 
 
-def gen_player_achivments(number: int) -> set[str]:
-    achivment_pool = {
+def gen_player_achievements(number: int) -> set[str]:
+    achievement_pool = {
         "Crafting Genius",
         "World Savior",
         "Master Explorer",
@@ -18,24 +18,26 @@ def gen_player_achivments(number: int) -> set[str]:
         "Sharp Mind",
         "Hidden Path Finder"
     }
-    requestet_set = set(random.sample(list(achivment_pool), number))
-    return requestet_set
+    requested_set = set(random.sample(list(achievement_pool), number))
+    return requested_set
 
 
 def main() -> None:
-    alex = gen_player_achivments(7)
-    ilyas = gen_player_achivments(5)
-    ayse = gen_player_achivments(9)
-    ahmet = gen_player_achivments(10)
+    alex = gen_player_achievements(7)
+    ilyas = gen_player_achievements(5)
+    ayse = gen_player_achievements(9)
+    ahmet = gen_player_achievements(10)
     print("=== Achievement Tracker System ===")
     print("Player Alex:", alex)
     print("Player Ilyas:", ilyas)
     print("Player Ayse:", ayse)
     print("Player Ahmet:", ahmet)
-    print("")
-    print("Common achievement:",
+    print()
+    print("All distinct achievements:", alex | ilyas | ayse | ahmet)
+    print()
+    print("Common achievements:",
           set.intersection(alex, ilyas, ayse, ahmet))
-    print("")
+    print()
     print("Only Alex has:",
           alex.difference(ilyas, ayse, ahmet))
     print("Only Ilyas has:",
@@ -44,7 +46,7 @@ def main() -> None:
           ayse.difference(alex, ilyas, ahmet))
     print("Only Ahmet has:",
           ahmet.difference(alex, ilyas, ayse))
-    print("")
+    print()
     print("Alex is missing:",
           (alex | ilyas | ayse | ahmet) - alex)
     print("Ilyas is missing:",
